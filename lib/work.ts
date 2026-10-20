@@ -1,5 +1,5 @@
 export type WorkItem =
-  | { type: 'image'; title: string; src: string; alt: string; description?: string; portrait?: boolean }
+  | { type: 'image'; title: string; src: string; alt: string; description?: string; portrait?: boolean; wide?: boolean }
   | { type: 'video'; title: string; src: string; poster?: string; description?: string; portrait?: boolean }
   | { type: 'file'; title: string; src: string; description?: string }
   | { type: 'link'; title: string; src: string; cover: string; alt: string; description?: string }
@@ -66,5 +66,18 @@ export const workCategories: WorkCategory[] = [
       },
     ],
   },
-  { id: 'data-visualization', label: 'Data Visualization', items: [] },
+  {
+    id: 'data-visualization',
+    label: 'Data Visualization',
+    items: [
+      {
+        type: 'image',
+        title: 'Time of Day Patterns Across Multiple Years',
+        src: '/work/time-of-day-trends.png',
+        alt: 'Bar charts of counts by time of day (6:00pm to 8:15pm) for each year from 2008 to 2022, with totals per time slot',
+        description: 'Showing trends over time.',
+        wide: true,
+      },
+    ],
+  },
 ]

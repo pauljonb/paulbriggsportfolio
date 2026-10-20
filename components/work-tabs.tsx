@@ -6,7 +6,7 @@ function WorkCard({ item }: { item: WorkItem }) {
   return (
     <figure
       className={`flex flex-col overflow-hidden rounded-xl border border-border bg-card ${
-        item.type === 'comparison' ? 'sm:col-span-2 lg:col-span-3' : ''
+        item.type === 'comparison' || (item.type === 'image' && item.wide) ? 'sm:col-span-2 lg:col-span-3' : ''
       }`}
     >
       {item.type === 'comparison' && (
@@ -35,7 +35,11 @@ function WorkCard({ item }: { item: WorkItem }) {
         <img
           src={item.src || '/placeholder.svg'}
           alt={item.alt}
-          className={`w-full object-cover ${item.portrait ? 'aspect-[9/16]' : 'aspect-video'}`}
+          className={
+            item.wide
+              ? 'h-auto w-full bg-white object-contain'
+              : `w-full object-cover ${item.portrait ? 'aspect-[9/16]' : 'aspect-video'}`
+          }
         />
       )}
       {item.type === 'video' && (
