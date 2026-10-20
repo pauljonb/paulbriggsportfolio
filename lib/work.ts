@@ -20,6 +20,7 @@ export const workCategories: WorkCategory[] = [
         type: 'video',
         title: 'Superman',
         src: '/work/superman.mp4',
+        poster: '/work/superman-cover.jpg',
         portrait: true,
       },
     ],
