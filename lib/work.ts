@@ -48,15 +48,15 @@ export const workCategories: WorkCategory[] = [
     items: [
       {
         type: 'comparison',
-        title: 'Westgate Reservation Page Redesign',
+        title: 'Company Reservation Page Redesign',
         src: 'westgate-redesign',
         before: {
           src: '/work/westgate-before.png',
-          alt: 'Original Westgate reservation page with a search bar above a mostly empty black area and a bowling photo',
+          alt: 'Original company reservation page with a search bar above a mostly empty black area and a bowling photo',
         },
         after: {
           src: '/work/westgate-after.png',
-          alt: 'Redesigned Westgate reservation page with a Schedule Reservation form, Reserve button, neon bowling graphic, and family photo',
+          alt: 'Redesigned company reservation page with a Schedule Reservation form, Reserve button, neon bowling graphic, and family photo',
         },
         description: 'A company sign-up page I redesigned.',
       },
@@ -68,7 +68,7 @@ export const workCategories: WorkCategory[] = [
     items: [
       {
         type: 'video',
-        title: 'Superman',
+        title: 'Lift Off',
         src: '/work/superman.mp4#t=0.1',
         portrait: true,
       },
