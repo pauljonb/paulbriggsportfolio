@@ -3,16 +3,15 @@ import { ContactLink } from '@/components/contact-link'
 export function CallingCard() {
   return (
     <article className="w-full max-w-xl overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-      <div className="h-2 bg-primary" aria-hidden="true" />
+      <header className="flex flex-col gap-3 bg-primary px-8 py-10 text-primary-foreground sm:px-12">
+        <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+          Paul Briggs
+        </h1>
+        <p className="text-lg font-medium text-primary-foreground/85">
+          Marketing, Research &amp; Analytics
+        </p>
+      </header>
       <div className="flex flex-col gap-8 p-8 sm:p-12">
-        <header className="flex flex-col gap-3">
-          <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-            Paul Briggs
-          </h1>
-          <p className="text-lg font-medium text-primary">
-            Marketing, Research &amp; Analytics
-          </p>
-        </header>
 
         <p className="leading-relaxed text-muted-foreground text-pretty">
           I combine research, data analysis, and creativity to help businesses

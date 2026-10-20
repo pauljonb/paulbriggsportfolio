@@ -111,7 +111,7 @@ export function WorkTabs() {
       <Tabs defaultValue={workCategories[0].id} className="flex flex-col gap-6">
         <TabsList className="flex h-auto w-full flex-wrap justify-start gap-1 sm:w-fit">
           {workCategories.map((category) => (
-            <TabsTrigger key={category.id} value={category.id} className="flex-none px-4 py-2">
+            <TabsTrigger key={category.id} value={category.id} className="flex-none px-4 py-2 data-active:bg-primary data-active:text-primary-foreground data-active:shadow-sm">
               {category.label}
             </TabsTrigger>
           ))}
