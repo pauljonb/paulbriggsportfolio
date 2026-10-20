@@ -6,7 +6,11 @@ function WorkCard({ item }: { item: WorkItem }) {
   return (
     <figure className="flex flex-col overflow-hidden rounded-xl border border-border bg-card">
       {item.type === 'image' && (
-        <img src={item.src || '/placeholder.svg'} alt={item.alt} className="aspect-video w-full object-cover" />
+        <img
+          src={item.src || '/placeholder.svg'}
+          alt={item.alt}
+          className={`w-full object-cover ${item.portrait ? 'aspect-[9/16]' : 'aspect-video'}`}
+        />
       )}
       {item.type === 'video' && (
         <video
@@ -14,7 +18,7 @@ function WorkCard({ item }: { item: WorkItem }) {
           poster={item.poster}
           controls
           preload="metadata"
-          className="aspect-video w-full bg-muted"
+          className={`w-full bg-muted ${item.portrait ? 'aspect-[9/16]' : 'aspect-video'}`}
         />
       )}
       {item.type === 'file' && (
