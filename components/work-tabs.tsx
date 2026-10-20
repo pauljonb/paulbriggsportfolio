@@ -31,6 +31,9 @@ function WorkCard({ item }: { item: WorkItem }) {
           ))}
         </div>
       )}
+      {item.type === 'image' && item.note && (
+        <p className="border-b border-border px-4 py-3 text-sm italic text-muted-foreground">{item.note}</p>
+      )}
       {item.type === 'image' && (
         <img
           src={item.src || '/placeholder.svg'}
