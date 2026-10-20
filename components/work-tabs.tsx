@@ -4,7 +4,33 @@ import { workCategories, type WorkItem } from '@/lib/work'
 
 function WorkCard({ item }: { item: WorkItem }) {
   return (
-    <figure className="flex flex-col overflow-hidden rounded-xl border border-border bg-card">
+    <figure
+      className={`flex flex-col overflow-hidden rounded-xl border border-border bg-card ${
+        item.type === 'comparison' ? 'sm:col-span-2 lg:col-span-3' : ''
+      }`}
+    >
+      {item.type === 'comparison' && (
+        <div className="grid gap-px bg-border md:grid-cols-2">
+          {[
+            { label: 'Before', image: item.before },
+            { label: 'After', image: item.after },
+          ].map(({ label, image }) => (
+            <div key={label} className="flex flex-col gap-2 bg-card p-3">
+              <span
+                className={`w-fit rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                  label === 'After' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
+                }`}
+              >
+                {label}
+              </span>
+              <a href={image.src} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-md">
+                <img src={image.src || '/placeholder.svg'} alt={image.alt} className="w-full object-contain" />
+                <span className="sr-only">Open {label.toLowerCase()} image full size</span>
+              </a>
+            </div>
+          ))}
+        </div>
+      )}
       {item.type === 'image' && (
         <img
           src={item.src || '/placeholder.svg'}

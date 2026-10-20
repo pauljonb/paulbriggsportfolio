@@ -3,6 +3,14 @@ export type WorkItem =
   | { type: 'video'; title: string; src: string; poster?: string; description?: string; portrait?: boolean }
   | { type: 'file'; title: string; src: string; description?: string }
   | { type: 'link'; title: string; src: string; cover: string; alt: string; description?: string }
+  | {
+      type: 'comparison'
+      title: string
+      src: string
+      before: { src: string; alt: string }
+      after: { src: string; alt: string }
+      description?: string
+    }
 
 export type WorkCategory = {
   id: string
@@ -25,7 +33,26 @@ export const workCategories: WorkCategory[] = [
       },
     ],
   },
-  { id: 'image-editing', label: 'Image Editing', items: [] },
+  {
+    id: 'image-editing',
+    label: 'Image Editing',
+    items: [
+      {
+        type: 'comparison',
+        title: 'Westgate Reservation Page Redesign',
+        src: 'westgate-redesign',
+        before: {
+          src: '/work/westgate-before.png',
+          alt: 'Original Westgate reservation page with a search bar above a mostly empty black area and a bowling photo',
+        },
+        after: {
+          src: '/work/westgate-after.png',
+          alt: 'Redesigned Westgate reservation page with a Schedule Reservation form, Reserve button, neon bowling graphic, and family photo',
+        },
+        description: 'A company sign-up page I redesigned.',
+      },
+    ],
+  },
   {
     id: 'video-editing',
     label: 'Video Editing',
