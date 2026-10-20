@@ -1,4 +1,4 @@
-import { FileText, ImageIcon } from 'lucide-react'
+import { ExternalLink, FileText, ImageIcon } from 'lucide-react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { workCategories, type WorkItem } from '@/lib/work'
 
@@ -32,8 +32,29 @@ function WorkCard({ item }: { item: WorkItem }) {
           <span className="sr-only">Open {item.title}</span>
         </a>
       )}
+      {item.type === 'link' && (
+        <a href={item.src} target="_blank" rel="noopener noreferrer" className="group block overflow-hidden">
+          <img
+            src={item.cover || '/placeholder.svg'}
+            alt={item.alt}
+            className="aspect-video w-full object-cover transition-transform group-hover:scale-105"
+          />
+          <span className="sr-only">Open {item.title} in a new tab</span>
+        </a>
+      )}
       <figcaption className="flex flex-col gap-1 p-4">
         <span className="font-medium">{item.title}</span>
+        {item.type === 'link' && (
+          <a
+            href={item.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center gap-1 text-sm font-medium text-primary hover:underline"
+          >
+            Play the game
+            <ExternalLink className="size-3.5" aria-hidden="true" />
+          </a>
+        )}
         {item.description && (
           <span className="text-sm leading-relaxed text-muted-foreground">{item.description}</span>
         )}
